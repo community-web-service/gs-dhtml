@@ -30,24 +30,30 @@ module.exports = function genericFileCopier(globSetGetter, options) {
 		var bundler = browserify(browserifyConfig);
 
 		// Browserify, Babelify, Map, and Minify JS
-		return bundler
-			// @todo Uncomment this and provide and option to disable it.
-			// @future Don't hard-code settings.
-			// @future Consider .babelrc
-			// @future Provide an option to create a standard bundle and a compat bundle.
-			// .transform("babelify", {presets: ["@babel/preset-env"]})
-			.bundle()
-			.on("error", log)
-			.pipe(source(browserifyBundle))
+
+		var bundledStream = bundler
+		// @todo Uncomment this and provide and option to disable it.
+		// @future Don't hard-code settings.
+		// @future Consider .babelrc
+		// .transform("babelify", {presets: ["@babel/preset-env"]})
+		.bundle()
+		.on("error", log)
+		.pipe(source(browserifyBundle))
+
+		bundledStream.pipe(multiDest(rawDestDirectoriesGlobSet));
+
+		var minStream = bundledStream
 			.pipe(buffer())
 			.pipe(sourcemaps.init({
 				loadMaps: true
 			}))
-			.pipe(multiDest(rawDestDirectoriesGlobSet))
 			.pipe(uglify())
 			.on("error", log)
 			.pipe(sourcemaps.write("./"))
 			.pipe(multiDest(minDestDirectoriesGlobSet));
+
+		return minStream;
+		
 	};
 
 	return taskFunction;
