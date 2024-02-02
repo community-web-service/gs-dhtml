@@ -1,11 +1,9 @@
 "use strict";
 
+// @future Provide configuration options for ESLint
 // @future Include comments that explains what each of these does.
-// @future Consider converting this to XML.
 module.exports = {
 	browserifyBundle: "./js/bundle.js",
-	jshintrc: ".jshintrc",
-	jshintReporter: "default",
 	wwwBase: "./src/www",
 	jsDocConfig: {
 		"opts": {

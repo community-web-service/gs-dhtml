@@ -11,7 +11,7 @@
  * Gulp Swallower plugin providing utility tasks for plugins that build DHTML based websites.
  * DHTML = HTML + CSS + JavaScript
  * Use gs-www as a generic output wrapper for this plugin.
- * Lints (jsHint), bundles (Browserify), minifies (Uglify), maps, and documents JS.
+ * Lints (ESLint), bundles (Browserify), minifies (Uglify), maps, and documents JS.
  * Can be extended with Mustache, SASS, SCSS, PHP and other Swallower plugins.
  * @module {Function} GsDhtml
  * @requires module:GulpSwallower
@@ -44,7 +44,7 @@
  * @future Consider gulp-filter
  * @future Consider gulp-autoprefixer
  * @future Change var names to the following pattern: fileType + "Files" | Directories + Src | Dest
- * @future Consider splitting gitignore, jsHint, jsDoc, and Source Map functionality into core modules.
+ * @future Consider splitting gitignore, linting, jsDoc, and Source Map functionality into core modules.
  * @future Check browserify settings
  * @future Convert ES5 classes to ES6 classes.
  */

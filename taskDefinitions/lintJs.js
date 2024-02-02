@@ -6,8 +6,6 @@ module.exports = function lintJs(options) {
 		options: {
 			srcFiles: "jsFiles",
 			globOptions: options.globOptions,
-			jshintrc: options.jshintrc,
-			jshintReporter: options.jshintReporter
 		}
 	}];
 

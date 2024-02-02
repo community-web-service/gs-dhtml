@@ -1,7 +1,7 @@
 {
 	"name":"gs-dhtml",
 	"version":"0.0.2",
-	"description":"Gulp Swallower plugin providing utility tasks for plugins that build DHTML based websites. DHTML = HTML + CSS + JavaScript. Use gs-www as a generic output wrapper for this plugin. Lints (jsHint), bundles (Browserify), minifies (Uglify), maps, and documents JS. Can be extended with Mustache, SASS, SCSS, PHP and other Swallower plugins.",
+	"description":"Gulp Swallower plugin providing utility tasks for plugins that build DHTML based websites. DHTML = HTML + CSS + JavaScript. Use gs-www as a generic output wrapper for this plugin. Lints (ESLint), bundles (Browserify), minifies (Uglify), maps, and documents JS. Can be extended with Mustache, SASS, SCSS, PHP and other Swallower plugins.",
 	"homepage":"https://github.com/community-web-service/gs-dhtml",
 	"author":{
 		"name":"Robert Gaines",
@@ -25,12 +25,13 @@
 		"beeper": "^2.1.0",
 		"browserify": "^17.0.0",
 		"del": "^6.1.1",
+		"eslint-config-airbnb-base": "^15.0.0",
 		"fancy-log": "^2.0.0",
 		"gulp": "^4.0.2",
 		"gulp-concat": "^2.6.1",
+		"gulp-eslint-new": "^1.9.0",
 		"gulp-exclude-gitignore": "^1.2.0",
 		"gulp-jsdoc3": "^3.0.0",
-		"gulp-jshint": "^2.1.0",
 		"gulp-uglify": "^3.0.2",
 		"gulp-multi-dest": "^1.3.7",
 		"gulp-rename": "^2.0.0",
