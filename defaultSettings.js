@@ -7,7 +7,7 @@ module.exports = {
 	jshintrc: ".jshintrc",
 	jshintReporter: "default",
 	wwwBase: "./src/www",
-	jsdocConfig: {
+	jsDocConfig: {
 		"opts": {
 			"destination": "./doc/html"
 		}

@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function genericFileCopier(globSetGetter, options) {
+module.exports = function gitignore(globSetGetter, options) {
 
 	var gulp = require("gulp");
 	var concat = require("gulp-concat");

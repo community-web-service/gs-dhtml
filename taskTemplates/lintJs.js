@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function genericFileCopier(globSetGetter, options) {
+module.exports = function lintJs(globSetGetter, options) {
 	var gulp = require("gulp");
 	var jshint = require("gulp-jshint");
 	var srcFiles = options.srcFiles;

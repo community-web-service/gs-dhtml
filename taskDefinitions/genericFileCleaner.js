@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function genericFileCopier(options) {
+module.exports = function genericFileCleaner(options) {
 	var taskDefinitions = [
 		// @future Consider reducing scope of rootAssetFiles since it duplicates functionality.
 		{

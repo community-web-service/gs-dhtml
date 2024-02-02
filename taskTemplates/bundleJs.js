@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function genericFileCopier(globSetGetter, options) {
+module.exports = function bundleJs(globSetGetter, options) {
 
 	// @future Determine if anything should be broken out into extensions or filters.
 

@@ -67,7 +67,7 @@ module.exports = function GsDhtml(gulpSwallower, templateOptions) {
 		_this.loadGlobSets();
 		_this.addBeeperToGulp();
 		_this.addGitignoreToGulp();
-		_this.addJsdocToGulp();
+		_this.addJsDocToGulp();
 		_this.addLintJsToGulp();
 		_this.addGenericFileCleanersToGulp();
 		_this.addGenericFileCopiersToGulp();
@@ -125,9 +125,9 @@ module.exports = function GsDhtml(gulpSwallower, templateOptions) {
 		_this.gulpSwallower.defineTasks(taskTemplate, taskDefinitions, taskDefinitionOptions);
 	}.bind(this);
 
-	_this.addJsdocToGulp = function addJsdocToGulp() {
-		var taskTemplate = require("./taskTemplates/jsdoc.js");
-		var taskDefinitions = require("./taskDefinitions/jsdoc.js");
+	_this.addJsDocToGulp = function addJsDocToGulp() {
+		var taskTemplate = require("./taskTemplates/jsDoc.js");
+		var taskDefinitions = require("./taskDefinitions/jsDoc.js");
 		var taskDefinitionOptions = _this.templateOptions;
 		_this.gulpSwallower.defineTasks(taskTemplate, taskDefinitions, taskDefinitionOptions);
 	}.bind(this);

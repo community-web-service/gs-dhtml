@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function genericFileCleaner(options) {
+module.exports = function genericFileCopier(options) {
 	var taskDefinitions = [{
 			name: "copySrcRoot",
 			options: {

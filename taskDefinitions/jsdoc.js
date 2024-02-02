@@ -6,7 +6,7 @@ module.exports = function jsDoc(options) {
 		options: {
 			srcFiles: "jsFiles",
 			globOptions: options.globOptions,
-			jsdocConfig: options.jsdocConfig
+			jsDocConfig: options.jsDocConfig
 		}
 	}];
 
