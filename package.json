@@ -1,6 +1,6 @@
 {
 	"name":"gs-dhtml",
-	"version":"0.0.2",
+	"version":"0.1.0",
 	"description":"Gulp Swallower plugin providing utility tasks for plugins that build DHTML based websites. DHTML = HTML + CSS + JavaScript. Use gs-www as a generic output wrapper for this plugin. Lints (ESLint), bundles (Webpack), minifies (Uglify), maps, and documents JS. Can be extended with Mustache, SASS, SCSS, PHP and other Swallower plugins.",
 	"homepage":"https://github.com/community-web-service/gs-dhtml",
 	"author":{
