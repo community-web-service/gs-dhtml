@@ -138,7 +138,7 @@ module.exports = [{
 		]
 	},
 	{
-		name: "browserifyEntries",
+		name: "webpackEntries",
 		globSet: ["./src/www/js/bundle.js"]
 	},
 	{

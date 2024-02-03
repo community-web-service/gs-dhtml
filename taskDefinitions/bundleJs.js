@@ -6,10 +6,10 @@ module.exports = function bundleJs(options) {
 		options: {
 			minDestDirectories: "minDestDirectories",
 			rawDestDirectories: "rawDestDirectories",
-			browserifyBundle: options.browserifyBundle,
-			browserifyEntries: "browserifyEntries",
+			webpackBundle: options.webpackBundle,
+			webpackEntries: "webpackEntries",
 			scriptDirectories: "scriptDirectories",
-			browserifyConfig: options.browserifyConfig
+			webpackConfig: options.webpackConfig
 		}
 	}];
 

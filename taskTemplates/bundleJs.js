@@ -4,48 +4,48 @@ module.exports = function bundleJs(globSetGetter, options) {
 
 	// @future Determine if anything should be broken out into extensions or filters.
 
+	var gulp = require("gulp");
 	var uglify = require("gulp-uglify");
-	var source = require("vinyl-source-stream");
-	var buffer = require("vinyl-buffer");
+	var named = require('vinyl-named');
 	var sourcemaps = require("gulp-sourcemaps");
 	var log = require("fancy-log");
 	var multiDest = require("gulp-multi-dest");
-	var browserify = require("browserify");
+	var webpackStream = require("webpack-stream");
 	var minDestDirectories = options.minDestDirectories;
 	var rawDestDirectories = options.rawDestDirectories;
-	var browserifyBundle = options.browserifyBundle;
-	var browserifyEntries = options.browserifyEntries;
+	var webpackBundle = options.webpackBundle;
+	var webpackEntries = options.webpackEntries;
 	var scriptDirectories = options.scriptDirectories;
-	var browserifyConfig = options.browserifyConfig;
+	var webpackConfig = options.webpackConfig;
 
 	var taskFunction = function () {
 		var minDestDirectoriesGlobSet = globSetGetter.getGlobSet(minDestDirectories);
 		var rawDestDirectoriesGlobSet = globSetGetter.getGlobSet(rawDestDirectories);
-		var browserifyEntriesGlobSet = globSetGetter.getGlobSet(browserifyEntries);
+		var webpackEntriesGlobSet = globSetGetter.getGlobSet(webpackEntries);
 		var scriptDirectoriesGlobSet = globSetGetter.getGlobSet(scriptDirectories);
 
-		browserifyConfig.entries = browserifyEntriesGlobSet;
-		browserifyConfig.paths = scriptDirectoriesGlobSet;
+		var webpackBaseOptions = {
+			resolve: {
+				modules: scriptDirectoriesGlobSet,
+			}
+		};
 
-		var bundler = browserify(browserifyConfig);
+		// @future Preserve certain options that would be overwritten
+		var webpackOptions = Object.assign({}, webpackBaseOptions, webpackConfig);
 
-		// Browserify, Babelify, Map, and Minify JS
-
-		var bundledStream = bundler
-		// @todo Uncomment this and provide and option to disable it.
+		var bundledStream = gulp.src(webpackEntriesGlobSet)
+		.pipe(named())
+		.pipe(webpackStream(webpackOptions))
+		// @todo Add "babelify" with {presets: ["@babel/preset-env"]}
 		// @future Don't hard-code settings.
 		// @future Consider .babelrc
-		// .transform("babelify", {presets: ["@babel/preset-env"]})
-		.bundle()
-		.on("error", log)
-		.pipe(source(browserifyBundle))
 
+		// @todo See if we eliminate this step
 		bundledStream.pipe(multiDest(rawDestDirectoriesGlobSet));
 
 		var minStream = bundledStream
-			.pipe(buffer())
 			.pipe(sourcemaps.init({
-				loadMaps: true
+				largeFile: true
 			}))
 			.pipe(uglify())
 			.on("error", log)

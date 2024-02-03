@@ -11,13 +11,14 @@
  * Gulp Swallower plugin providing utility tasks for plugins that build DHTML based websites.
  * DHTML = HTML + CSS + JavaScript
  * Use gs-www as a generic output wrapper for this plugin.
- * Lints (ESLint), bundles (Browserify), minifies (Uglify), maps, and documents JS.
+ * Lints (ESLint), bundles (Webpack), minifies (Uglify), maps, and documents JS.
  * Can be extended with Mustache, SASS, SCSS, PHP and other Swallower plugins.
  * @module {Function} GsDhtml
  * @requires module:GulpSwallower
  * @implements {module:GulpSwallower.SwallowerPlugin}
  * @param {GulpSwallower} gulpSwallower Gulp Swallower.
  * @param {object} [templateOptions] Default Swallower task template options.
+ * @future More fully integrate Webpack
  * @future Beautify all modules
  * @future Rethink how dest directories are handled.
  * @future Rethink how lib is handled, since it is being processed twice in some cases.
@@ -45,7 +46,6 @@
  * @future Consider gulp-autoprefixer
  * @future Change var names to the following pattern: fileType + "Files" | Directories + Src | Dest
  * @future Consider splitting gitignore, linting, jsDoc, and Source Map functionality into core modules.
- * @future Check browserify settings
  * @future Convert ES5 classes to ES6 classes.
  */
 
