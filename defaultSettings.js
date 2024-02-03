@@ -15,6 +15,7 @@ module.exports = {
 			filename: "js/[name]",
 		},
 	},
+	esLintConfig: {},
 	defaultGlobOptions: {
 		strict: true,
 		dot: true,
