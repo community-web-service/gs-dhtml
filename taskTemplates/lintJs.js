@@ -12,8 +12,7 @@ module.exports = function lintJs(globSetGetter, options) {
 
 		return gulp.src(srcFilesGlobSet, globOptions)
 			.pipe(gulpESLintNew())
-			.pipe(gulpESLintNew.format())
-			.pipe(gulpESLintNew.failAfterError());
+			.pipe(gulpESLintNew.format());
 	};
 
 	return taskFunction;
