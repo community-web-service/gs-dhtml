@@ -12,7 +12,7 @@ module.exports = {
 	webpackConfig: {
 		mode: "none",
 		output: {
-			filename: "js/[name]",
+			filename: "js/[name].js",
 		},
 	},
 	esLintConfig: {},

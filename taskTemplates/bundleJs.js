@@ -40,7 +40,6 @@ module.exports = function bundleJs(globSetGetter, options) {
 		// @future Don't hard-code settings.
 		// @future Consider .babelrc
 
-		// @todo See if we eliminate this step
 		bundledStream.pipe(multiDest(rawDestDirectoriesGlobSet));
 
 		var minStream = bundledStream
